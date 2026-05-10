@@ -1,1 +1,1 @@
-# Data-partner
+# data-partner
