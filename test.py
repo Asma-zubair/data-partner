@@ -5,12 +5,25 @@ from sklearn.preprocessing import StandardScaler
 model=LinearRegression()
 scaler=StandardScaler()
 pipe=Autopipeline()
+
 validator=DataValidator()
-sample_data={"model": model, "scaler": scaler}
+sample_data={"age": "None",
+              "bp": 120}
+
+
+validator.set_required_columns(["age",
+                                "bp"])
+
+validator.set_column_types({"age": str, 
+                            "bp": int})
+
 validator.validate(sample_data)
+
+
 pipe.save(model=model,
           scaler=scaler, 
           path="model.pkl")
 
 data=pipe.load(path="model.pkl")
+
 print(data)
