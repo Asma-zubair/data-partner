@@ -18,6 +18,24 @@ validator.set_column_types({"age": str,
                             "bp": int})
 
 validator.validate(sample_data)
+validator.save_schema("schema.json")
+validator.load_schema("schema.json")
+
+print(validator.required_columns)
+
+print(validator.column_types)
+
+validator.set_column_ranges({
+    "age": (0, 120),
+    "bp": (50, 250)
+})
+
+sample_data = {
+    "age": 500,
+    "bp": 120
+}
+
+validator.validate(sample_data)
 
 
 pipe.save(model=model,

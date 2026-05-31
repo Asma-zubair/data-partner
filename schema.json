@@ -1,0 +1,10 @@
+{
+    "required_columns": [
+        "age",
+        "bp"
+    ],
+    "column_types": {
+        "age": "str",
+        "bp": "int"
+    }
+}
